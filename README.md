@@ -9,3 +9,31 @@ In addition to implementing functionality based on the specifications provided b
 The code utilizes fonts created with the Crystalfontz Font Editor. However, after creation, the font appears somewhat broken due to the limited number of pixels available on the screen. The recommended approach for better rendering is to use a bitmap file containing a single character for each supported text size, and then assemble these characters together to render entire sentences. While this method provides a better appearance, it introduces a problem: when the screen is cleared and re-rendered with new data 30 times per second, the device cannot handle the rate and will display an empty screen between each clear and re-render.
 
 The effort required to optimize the device to work properly is excessive. The time spent on this could be better invested in other, more important projects of mine, rather than dealing with this costly inconvenience ($135 USD).
+Here’s a clearer version of your instructions:
+
+### Prerequisites
+
+Before you begin, make sure to install the required tools by running:
+
+```bash
+pip install scons pre-commit
+```
+
+### Building the Project
+
+To build the project, simply run the following command:
+
+```bash
+scons
+```
+
+### Running the Program
+
+1. Connect the LCD display.
+2. Execute the program by running:
+
+```bash
+./build/lcd_display.out
+``` 
+
+Make sure to adjust any paths as necessary.
