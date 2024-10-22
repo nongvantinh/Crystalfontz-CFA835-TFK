@@ -22,7 +22,7 @@ public:
 		std::string type;
 		nlohmann::json payload;
 		Message(std::string p_type) :
-				type(p_type){};
+				type(p_type) {};
 		Message() = default;
 		Message(websocketpp::connection_hdl p_connection, std::string p_type, nlohmann::json p_payload) :
 				connection(p_connection), type(p_type), payload(p_payload) {}

@@ -28,8 +28,6 @@ public:
 
 	void set_root(std::shared_ptr<Component> p_component);
 	std::shared_ptr<Component> get_root();
-
-
 };
 
 #endif // VIEWPORT_H

@@ -29,7 +29,6 @@ private:
 	void on_session_message_received(const WebSocketClient::Message &p_message);
 	void on_trigger_scan_interface_early_message_received(const WebSocketClient::Message &p_message);
 
-
 	size_t current_index = 0;
 	std::vector<std::string> tabs;
 	std::map<std::string, std::function<void()>> tab_callbacks;
@@ -38,4 +37,4 @@ private:
 	std::shared_ptr<Text> option;
 };
 
-#endif //DASHBOARD_PAGE_H
+#endif // DASHBOARD_PAGE_H

@@ -32,4 +32,4 @@ public:
 
 #define FontStringName(m_name) FontStringNames::get_singleton()->m_name
 
-#endif //FONT_STRING_NAMES_H
+#endif // FONT_STRING_NAMES_H

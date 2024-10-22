@@ -13,7 +13,7 @@
 #define CATCH_CONFIG_RUNNER
 #include "catch.hpp"
 
-Application* application;
+Application *application;
 Catch::Session session;
 std::mutex main_mutex;
 void register_crystalfontz_hardwares(HardwareFactory *p_factory);
@@ -47,7 +47,6 @@ int main() {
 	register_crystalfontz_hardwares(factory);
 	application = Application::get_singleton();
 	application->start();
-
 
 	return 0;
 }

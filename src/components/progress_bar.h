@@ -12,10 +12,10 @@ private:
 
 public:
 	void set_value(uint32_t p_value);
-	uint32_t get_value()const;
+	uint32_t get_value() const;
 
 	virtual void set_max_value(uint32_t p_value);
-	uint32_t get_max_value()const;
+	uint32_t get_max_value() const;
 };
 
 #endif // PROGRESS_BAR_H

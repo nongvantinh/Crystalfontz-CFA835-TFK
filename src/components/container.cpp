@@ -51,7 +51,7 @@ void Container::fit_child_in_rect(std::shared_ptr<Component> p_child, const Vect
 Vector2i Container::get_required_min_size() {
 	Vector2i required_size = Vector2i::ZERO;
 
-	traverse_post_order([&required_size](Component* component) -> bool {
+	traverse_post_order([&required_size](Component *component) -> bool {
 		required_size += component->get_minimum_size();
 		return false;
 	});

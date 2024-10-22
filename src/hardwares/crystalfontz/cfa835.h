@@ -15,13 +15,13 @@ enum class KeyCode;
 class CrystalfontzMessage;
 class Vector2i;
 /*
-* Model Classification Information:
-*   - Brand: Crystalfontz America, Inc.
-*   - Model Identifier: 835
-*   - Blacklight Type & Color: LED
-*   - Fluid Type, Image (Positive or Negative) & LCD Glass Color: FSTN, Positive, Neutral
-*   - Polarizer Film Type, Temperature Range, & Viewing Direction (O'clock): Transflective, Wide Temperature -20°C to +70°C, 12:00
-*/
+ * Model Classification Information:
+ *   - Brand: Crystalfontz America, Inc.
+ *   - Model Identifier: 835
+ *   - Blacklight Type & Color: LED
+ *   - Fluid Type, Image (Positive or Negative) & LCD Glass Color: FSTN, Positive, Neutral
+ *   - Polarizer Film Type, Temperature Range, & Viewing Direction (O'clock): Transflective, Wide Temperature -20°C to +70°C, 12:00
+ */
 
 class CFA835 : public CrystalfontzDevice {
 public:
@@ -119,7 +119,7 @@ public:
 		InterfaceOption option_flags;
 		BaudRate baud_rate;
 		SerialInterfaceOption(InterfaceOption p_option_flags, BaudRate p_rate) :
-				option_flags(p_option_flags), baud_rate(p_rate){};
+				option_flags(p_option_flags), baud_rate(p_rate) {};
 	};
 
 	enum class SpiCpol {
@@ -147,7 +147,7 @@ public:
 		BitFirst bit_first;
 		uint8_t reserved;
 		SPIInterfaceOption(InterfaceOption p_option_flags, SpiCpol p_cpol, SpiCpha p_cpha, BitFirst p_bit_first, uint8_t p_reserved) :
-				option_flags(p_option_flags), cpol(p_cpol), cpha(p_cpha), bit_first(p_bit_first), reserved(p_reserved){};
+				option_flags(p_option_flags), cpol(p_cpol), cpha(p_cpha), bit_first(p_bit_first), reserved(p_reserved) {};
 	};
 
 	enum class I2CBusSpeed {
@@ -161,7 +161,7 @@ public:
 		uint8_t i2c_address;
 		I2CBusSpeed speed;
 		S2CInterfaceOption(InterfaceOption p_option_flags, uint8_t p_i2c_address, I2CBusSpeed p_speed) :
-				option_flags(p_option_flags), i2c_address(p_i2c_address), speed(p_speed){};
+				option_flags(p_option_flags), i2c_address(p_i2c_address), speed(p_speed) {};
 	};
 
 	enum class GPIOIndex {
@@ -203,7 +203,7 @@ public:
 		uint8_t pin_drive_mode;
 		GPIOResult(GPIOIndex p_index, bool p_pin_state_s, bool p_pin_state_f, bool p_pin_state_r,
 				uint8_t p_pin_pwm_output_value, uint8_t p_pin_function_select, uint8_t p_pin_drive_mode) :
-				index(p_index), pin_state_s(p_pin_state_s), pin_state_f(p_pin_state_f), pin_state_r(p_pin_state_r), pin_pwm_output_value(p_pin_pwm_output_value), pin_function_select(p_pin_function_select), pin_drive_mode(p_pin_drive_mode){};
+				index(p_index), pin_state_s(p_pin_state_s), pin_state_f(p_pin_state_f), pin_state_r(p_pin_state_r), pin_pwm_output_value(p_pin_pwm_output_value), pin_function_select(p_pin_function_select), pin_drive_mode(p_pin_drive_mode) {};
 	};
 
 	struct ADCResult {
@@ -212,7 +212,7 @@ public:
 		uint16_t min_value;
 		uint16_t max_value;
 		ADCResult(ADCIndex p_index, uint16_t p_average, uint16_t p_min_value, uint16_t p_max_value) :
-				index(p_index), average(p_average), min_value(p_min_value), max_value(p_max_value){};
+				index(p_index), average(p_average), min_value(p_min_value), max_value(p_max_value) {};
 	};
 
 	struct KeypadEvent {

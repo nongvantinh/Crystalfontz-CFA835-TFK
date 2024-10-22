@@ -28,4 +28,4 @@ private:
 	float min_display_time = 0.2;
 };
 
-#endif //ENGINES_PAGE_H
+#endif // ENGINES_PAGE_H

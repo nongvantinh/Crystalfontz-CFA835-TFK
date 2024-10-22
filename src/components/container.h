@@ -62,7 +62,6 @@ public:
 			BoxContainer(false) { is_fixed = true; }
 };
 
-
 class MarginContainer : public Container {
 private:
 	size_t margin_left = 0;

@@ -31,7 +31,7 @@ MessageTypeStrings::MessageTypeStrings() {
 	generate_support_package = "GenerateSupportPackage";
 	cancel_generate_support_package = "CancelGenerateSupportPackage";
 	get_all_workflow = "GetAllWorkFlow";
-    
+
 	// Frontend messages
 	modal_triger_scan_error_closed = "ModalTrigerScanErrorClosed";
 	notify_lcd_on_ui_dashboard = "NotifyLcdOnUiDashboard";

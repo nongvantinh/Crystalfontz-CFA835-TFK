@@ -13,4 +13,4 @@ public:
 	void update(UNUSED_PARAM float p_delta) override;
 };
 
-#endif //REPORTS_PAGE_H
+#endif // REPORTS_PAGE_H

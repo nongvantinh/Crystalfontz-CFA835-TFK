@@ -1299,16 +1299,16 @@ void CFA835::upload_file(std::string p_path) {
 		return;
 	}
 
-    std::vector<uint8_t> buffer(120);
+	std::vector<uint8_t> buffer(120);
 
-    // Read and store the contents of the file, 120 bytes at a time
-    while (file.read(reinterpret_cast<char*>(buffer.data()), buffer.size())) {
-        std::streamsize bytesRead = file.gcount();
-        if (bytesRead > 0) {
-            buffer.resize(bytesRead);
-            micro_sd_file_write_data(buffer);
-        }
-    }
+	// Read and store the contents of the file, 120 bytes at a time
+	while (file.read(reinterpret_cast<char *>(buffer.data()), buffer.size())) {
+		std::streamsize bytesRead = file.gcount();
+		if (bytesRead > 0) {
+			buffer.resize(bytesRead);
+			micro_sd_file_write_data(buffer);
+		}
+	}
 
 	file.close();
 

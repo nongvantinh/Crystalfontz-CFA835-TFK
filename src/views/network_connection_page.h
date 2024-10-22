@@ -17,4 +17,4 @@ public:
 	void on_received_network_connection(const WebSocketClient::Message &p_message);
 };
 
-#endif //NETWORK_CONNECTION_PAGE_H
+#endif // NETWORK_CONNECTION_PAGE_H

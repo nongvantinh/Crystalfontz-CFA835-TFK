@@ -11,7 +11,7 @@
 #include <sstream>
 #include <string>
 
-BaseDevice* DeviceManager::QUEUE_FOR_TESTING = nullptr;
+BaseDevice *DeviceManager::QUEUE_FOR_TESTING = nullptr;
 
 DeviceManager::DeviceManager() :
 		connected_devices(), excluded_ports() {

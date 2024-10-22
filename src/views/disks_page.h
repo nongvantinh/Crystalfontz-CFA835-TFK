@@ -13,5 +13,4 @@ public:
 	void update(UNUSED_PARAM float p_delta) override;
 };
 
-
-#endif //DISKS_PAGE_H
+#endif // DISKS_PAGE_H

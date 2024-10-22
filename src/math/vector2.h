@@ -29,7 +29,7 @@ public:
 	bool operator<(const Vector2 &p_vec2) const { return (x == p_vec2.x) ? (y < p_vec2.y) : (x < p_vec2.x); }
 	bool operator>(const Vector2 &p_vec2) const { return (x == p_vec2.x) ? (y > p_vec2.y) : (x > p_vec2.x); }
 	friend std::ostream &operator<<(std::ostream &os, const Vector2 &vec);
-	
+
 	float x;
 	float y;
 };

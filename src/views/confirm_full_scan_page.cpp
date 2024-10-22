@@ -51,7 +51,7 @@ void ConfirmFullScanPage::input_event(std::shared_ptr<InputEvent> p_input_event)
 	if (p_input_event->is_pressed && p_input_event->key == KeyCode::ENTER) {
 		WebSocketClient::Message msg(MessageTypeString(lcd_full_scan));
 		WebSocketClient::get_singleton()->send_message(msg);
-        
+
 		Input::get_singleton()->set_input_as_handled();
 	} else if (p_input_event->is_pressed && p_input_event->key == KeyCode::CANCEL) {
 		get_viewport()->set_root(std::make_shared<DashboardPage>());

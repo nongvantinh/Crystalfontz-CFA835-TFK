@@ -1,7 +1,7 @@
 #ifndef VECTOR2I_H
 #define VECTOR2I_H
-#include <iostream>
 #include <algorithm>
+#include <iostream>
 
 class Vector2i {
 public:

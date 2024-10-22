@@ -56,4 +56,4 @@ public:
 
 #define MessageTypeString(m_name) MessageTypeStrings::get_singleton()->m_name
 
-#endif //MESSAGE_TYPE_STRINGS_H
+#endif // MESSAGE_TYPE_STRINGS_H

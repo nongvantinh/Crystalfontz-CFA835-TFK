@@ -9,7 +9,6 @@ public:
 	~DummyDevice() override;
 
 	void upload_file(std::string p_path) override;
-
 };
 
 #endif // DUMMY_DEVICE_H

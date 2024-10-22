@@ -4,6 +4,6 @@
 #include <string>
 class BaseDevice;
 
-bool run_test(BaseDevice* p_device, std::string p_tag);
+bool run_test(BaseDevice *p_device, std::string p_tag);
 
 #endif // MAIN_H

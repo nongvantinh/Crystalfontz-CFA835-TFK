@@ -13,4 +13,4 @@ public:
 	void update(UNUSED_PARAM float p_delta) override;
 };
 
-#endif //WORKFLOWS_PAGE_H
+#endif // WORKFLOWS_PAGE_H
