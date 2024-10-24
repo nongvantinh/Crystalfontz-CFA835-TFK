@@ -1,0 +1,22 @@
+#ifndef {{ base_name.upper() }}_FACTORY_H
+#define {{ base_name.upper() }}_FACTORY_H
+
+#include <unordered_map>
+#include <string>
+#include <functional>
+#include <memory>
+#include "bitmap_base.h"
+#include "generated/bitmap_datas/{{ base_name }}.h"
+
+class {{ base_name }}Factory {
+public:
+    using BitmapCreator = std::function<std::unique_ptr<BitmapBase>()>;
+
+    static void initialize();
+    static std::unique_ptr<BitmapBase> create(const std::string& p_class_name);
+
+private:
+    static std::unordered_map<std::string, BitmapCreator> class_map;
+};
+
+#endif // {{ base_name.upper() }}_FACTORY_H

@@ -1,0 +1,19 @@
+#include "generated/bitmap_factories/{{ base_name }}_factory.h"
+
+std::unordered_map<std::string, {{ base_name }}Factory::BitmapCreator> {{ base_name }}Factory::class_map;
+
+void {{ base_name }}Factory::initialize() {
+    {% for class_data in classes %}
+    class_map["{{ class_data.class_name }}"] = []() -> std::unique_ptr<BitmapBase> {
+        return std::make_unique<{{ class_data.class_name }}>();
+    };
+    {% endfor %}
+}
+
+std::unique_ptr<BitmapBase> {{ base_name }}Factory::create(const std::string& p_class_name) {
+    auto it = class_map.find(p_class_name);
+    if (it != class_map.end()) {
+        return it->second();
+    }
+    return nullptr;
+}

@@ -1,0 +1,35 @@
+#include "generated/bitmap_class_factory.h"
+{% for base_name in base_names %}
+#include "generated/bitmap_factories/{{ base_name }}_factory.h"
+{% endfor %}
+
+// Definition of the factory map
+std::unordered_map<std::string, BitmapClassFactory::BitmapCreator> BitmapClassFactory::factory_map;
+
+void BitmapClassFactory::initialize() {
+    {% for base_name in base_names %}
+    {{ base_name }}Factory::initialize();
+    factory_map["{{ base_name }}"] = [](const std::string& p_class_name) -> std::unique_ptr<BitmapBase> {
+        return {{ base_name }}Factory::create(p_class_name);
+    };
+    {% endfor %}
+}
+
+std::unique_ptr<BitmapBase> BitmapClassFactory::create(const std::string& p_class_name) {
+    std::string base_name = extract_base_name(p_class_name);
+
+    auto it = factory_map.find(base_name);
+    if (it != factory_map.end()) {
+        return it->second(p_class_name);
+    }
+    return nullptr;
+}
+
+std::string BitmapClassFactory::extract_base_name(const std::string& p_class_name) {
+    for (size_t i = 0; i < p_class_name.size(); ++i) {
+        if (std::isdigit(p_class_name[i]) && p_class_name[i + 1] == '_') {
+            return p_class_name.substr(0, i + 1);
+        }
+    }
+    return p_class_name;
+}

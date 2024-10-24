@@ -1,8 +1,6 @@
 #include "cfa835.h"
 
 #include "hardwares/input.h"
-#include "main.h"
-#include "managers/device_manager.h"
 #include "math/vector2i.h"
 
 #include <algorithm>
@@ -250,7 +248,7 @@ bool CFA835::initialize() {
 	if (receive_thread.joinable()) {
 		receive_thread.detach();
 	}
-	return run_test(this, TEST_CASE_TAG);
+	return true;
 }
 
 void CFA835::discard_initial_data() {

@@ -1,6 +1,7 @@
 #ifndef HARDWARE_FACTORY_H
 #define HARDWARE_FACTORY_H
 
+#include <functional>
 #include <memory>
 #include <string>
 #include <unordered_map>
@@ -30,15 +31,15 @@ class HardwareFactory {
 public:
 	static HardwareFactory *get_singleton();
 
-	bool register_hardware(const HardwareModel &p_model, std::shared_ptr<BaseDevice> (*createFunc)(std::string));
+	bool register_hardware(const HardwareModel &p_model, std::function<std::shared_ptr<BaseDevice>(const std::string &p_com_port)> p_create_func);
 	std::vector<HardwareModel> get_supported_hardwares() const;
-	std::shared_ptr<BaseDevice> create_device(const HardwareModel &p_model, std::string p_com_port);
+	std::shared_ptr<BaseDevice> create_device(const HardwareModel &p_model, const std::string &p_com_port);
 
 private:
 	HardwareFactory();
-	~HardwareFactory();
+	~HardwareFactory() = default;
 
-	std::unordered_map<HardwareModel, std::shared_ptr<BaseDevice> (*)(std::string), HardwareModel::Hash> device_creators;
+	std::unordered_map<HardwareModel, std::function<std::shared_ptr<BaseDevice>(const std::string &p_com_port)>, HardwareModel::Hash> device_creators;
 	std::vector<HardwareModel> supported_hardwares;
 };
 

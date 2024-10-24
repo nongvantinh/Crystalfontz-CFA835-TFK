@@ -1,39 +1,74 @@
-**Crystalfontz CFA835-TFK**
+# Crystalfontz CFA835-TFK Display Project
 
-Product link: https://www.crystalfontz.com/product/cfa835tfk-display-graphic-lcd-244x68
+**Product Link:** [Crystalfontz CFA835-TFK](https://www.crystalfontz.com/product/cfa835tfk-display-graphic-lcd-244x68)
 
-This is an attempt to use the LCD CFA835 from Crystalfontz. This device features a 244 x 68 pixel backlit LCD screen and has 6 buttons (UP, DOWN, LEFT, RIGHT, ENTER, EXIT).
+This project aims to implement functionality for the Crystalfontz CFA835 LCD display, which features a 244 x 68 pixel backlit screen and six buttons (UP, DOWN, LEFT, RIGHT, ENTER, EXIT). The project includes a comprehensive application with a layout system, text rendering, image display, and a progress bar.
 
-In addition to implementing functionality based on the specifications provided by Crystalfontz, I have developed a mechanism to use this device as a complete application. This application includes several main components such as a layout system, text rendering, image display, and a progress bar.
+## Key Features
 
-The code utilizes fonts created with the Crystalfontz Font Editor. However, after creation, the font appears somewhat broken due to the limited number of pixels available on the screen. The recommended approach for better rendering is to use a bitmap file containing a single character for each supported text size, and then assemble these characters together to render entire sentences. While this method provides a better appearance, it introduces a problem: when the screen is cleared and re-rendered with new data 30 times per second, the device cannot handle the rate and will display an empty screen between each clear and re-render.
+- **Screen Resolution:** 244 x 68 pixels
+- **User Interaction:** Utilizes six buttons for navigation
+- **Text and Image Rendering:** Supports dynamic text and image display
+- **Progress Bar Implementation:** Visual feedback for ongoing processes
 
-The effort required to optimize the device to work properly is excessive. The time spent on this could be better invested in other, more important projects of mine, rather than dealing with this costly inconvenience ($135 USD).
-Here’s a clearer version of your instructions:
+### Challenges
 
-### Prerequisites
+While the project implements functionality based on the specifications provided by Crystalfontz, there are limitations with font rendering. Fonts created with the Crystalfontz Font Editor can appear broken due to pixel constraints. A recommended approach is to use bitmap files for better rendering. However, rendering new data at 30 frames per second can lead to performance issues, resulting in an empty screen during updates.
 
-Before you begin, make sure to install the required tools by running:
+Given the time required for optimization and the cost of the device ($135 USD), this project may require careful consideration of resource allocation.
+
+## Prerequisites
+
+Before starting, ensure you have the necessary tools installed:
 
 ```bash
-pip install scons pre-commit
+sudo apt-get install libboost-all-dev
+pip install scons pre-commit Jinja2 Pillow
 ```
 
-### Building the Project
+Adjust any paths as necessary.
 
-To build the project, simply run the following command:
+## Using a Different Font
+
+To use a custom font, follow these steps:
+
+### 1. Download a Font
+
+You can download `.ttf` fonts from websites like [Google Fonts](https://fonts.google.com/) or other font repositories.
+
+### 2. Place the Font File
+
+Copy the downloaded `.ttf` file to the `src/assets/fonts` directory.
+
+### 3. Generate Bitmap Representations of the Font
+
+Due to limitations with the Crystalfontz Font Editor, it is recommended to use bitmap files instead of direct font rendering. To generate bitmap representations, run the following command, which will use the font placed in `src/assets/fonts` and output the results to `src/assets/bitmaps`:
+
+```bash
+python generate_dependencies.py
+```
+
+### Limitations of the Crystalfontz Font Editor
+
+- **Manual Character Adjustment:** Requires manual tweaks to each character to prevent size mismatches.
+- **Limited Font Slots:** Only four slots are available for fonts.
+- **Pre-loading Requirement:** Fonts must be loaded onto the LCD before use.
+
+Using bitmap files alleviates many of these issues, allowing for better rendering quality.
+
+## Building the Project
+
+To build the project, run the following command:
 
 ```bash
 scons
 ```
 
-### Running the Program
+## Running the Program
 
 1. Connect the LCD display.
-2. Execute the program by running:
+2. Execute the program with:
 
 ```bash
-./build/lcd_display.out
-``` 
-
-Make sure to adjust any paths as necessary.
+sudo ./build/lcd_display.out
+```

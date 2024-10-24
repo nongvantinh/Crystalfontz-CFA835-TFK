@@ -3,8 +3,8 @@
 import os
 import sys
 import subprocess
-
-import SCons.Util
+import struct
+from SCons.Script import Environment, Variables, Help, ARGUMENTS, EnumVariable
 
 program_name = 'build/lcd_display.out'
 root_dir = os.path.abspath('.')
@@ -40,12 +40,12 @@ root_directories = [
     '.', 
     'src', 
     'src/components', 
+    'src/generated', 
     'src/configs', 
-    'src/managers', 
     'src/models', 
     'src/utils', 
     'src/hardwares',
-    'src/hardwares/crystalfontz'
+    'src/hardwares/crystalfontz',
     'src/views',
     'tests',
     'lib',
@@ -53,11 +53,8 @@ root_directories = [
 
 env['CPPPATH'] = root_directories
 
-# Find all .cpp and .h files recursively in the current directory
 for root_dir in root_directories:
-    # Create a path pattern for .cpp files in the current root directory and subdirectories
     pattern = os.path.join(root_dir, '**', SOURCE_EXTENSION)
-    # Use `env.Glob` to find .cpp files matching the pattern
     sources += env.Glob(pattern)
 
 print(sources)

@@ -1,0 +1,9 @@
+#include "{{ base_name }}.h"
+
+{% for class_data in classes_data %}
+{{ class_data.class_name }}::{{ class_data.class_name }}() {
+    width = {{ class_data.width }};
+    height = {{ class_data.height }};
+    data = { {{ class_data.data | join(", ") }} };
+}
+{% endfor %}

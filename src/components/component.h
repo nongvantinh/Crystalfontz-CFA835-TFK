@@ -15,6 +15,7 @@
 #include <list>
 #include <memory>
 
+#include "display_server.h"
 #include "hardwares/input.h"
 #include "math/vector2i.h"
 

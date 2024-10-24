@@ -5,6 +5,7 @@
 
 class Helpers {
 public:
+	static std::string sanitize_filename(char p_character);
 	static std::string run_command(const std::string &p_command);
 	static bool file_exists(const std::string &p_file_path);
 };

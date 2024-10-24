@@ -1,7 +1,6 @@
 #include "catch.hpp"
 
 #include "hardwares/crystalfontz/cfa835.h"
-#include "managers/device_manager.h"
 #include "math/vector2i.h"
 
 #include <chrono>
@@ -100,13 +99,13 @@
 // 	// }
 // }
 
-TEST_CASE("Test clear_display", "[CFA835]") {
-	CFA835 *device = static_cast<CFA835 *>(DeviceManager::QUEUE_FOR_TESTING);
+// TEST_CASE("Test clear_display", "[CFA835]") {
+// 	CFA835 *device = static_cast<CFA835 *>(DeviceManager::QUEUE_FOR_TESTING);
 
-	bool screen_is_cleared = device->clear_display();
+// 	bool screen_is_cleared = device->clear_display();
 
-	REQUIRE(screen_is_cleared == true);
-}
+// 	REQUIRE(screen_is_cleared == true);
+// }
 
 // TEST_CASE("Test read_special_character_bitmaps", "[CFA835]") {
 // 	CFA835 *device = static_cast<CFA835 *>(DeviceManager::QUEUE_FOR_TESTING);

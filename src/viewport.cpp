@@ -1,25 +1,21 @@
 #include "viewport.h"
-#include "arrow_shape.h"
-#include "font_string_names.h"
-#include "managers/display_server.h"
+
 #include "message_type_strings.h"
 #include "web_socket_client.h"
 
-#include "views/booting_page.h"
-#include "views/license_activation_page.h"
-#include "views/network_connection_page.h"
+#include "core/bitmap.h"
+#include "core/geometry_shape.h"
+#include "core/text.h"
 
 #include "views/auto_full_scan_page.h"
+#include "views/booting_page.h"
 #include "views/dashboard_page.h"
-
 #include "views/disks_page.h"
-
 #include "views/engines_page.h"
-
+#include "views/license_activation_page.h"
+#include "views/network_connection_page.h"
 #include "views/reports_page.h"
-
 #include "views/settings_page.h"
-
 #include "views/workflows_page.h"
 
 #include <iostream>
@@ -44,15 +40,15 @@ Viewport::~Viewport() {
 
 void Viewport::initialize() {
 	set_name("Viewport");
-	queue_render();
 
-	ws_client = WebSocketClient::get_singleton();
-	ws_client->connect("localhost:8081/ws");
-	ws_client->run();
+	// ws_client = WebSocketClient::get_singleton();
+	// ws_client->connect("localhost:8081/ws");
+	// ws_client->run();
 
-	add_component(std::make_shared<NetworkConnectionPage>());
+	// add_component(std::make_shared<NetworkConnectionPage>());
 
 	set_root(std::make_shared<DashboardPage>());
+	// set_root(std::make_shared<Text>("Hello World!"));
 }
 
 void Viewport::notification(UNUSED_PARAM Notification p_which) {
@@ -71,6 +67,7 @@ void Viewport::render() {
 }
 
 void Viewport::input_event(UNUSED_PARAM std::shared_ptr<InputEvent> p_input_event) {
+	std::cout << "input_event: " << p_input_event->is_pressed << " : " << int(p_input_event->key) << std::endl;
 }
 
 void Viewport::set_root(std::shared_ptr<Component> p_component) {
@@ -86,7 +83,7 @@ std::shared_ptr<Component> Viewport::get_root() {
 }
 
 void Viewport::update(UNUSED_PARAM float p_delta) {
-	ws_client->process_all_messages();
+	// ws_client->process_all_messages();
 }
 
 void Viewport::on_open_dashboard_page(UNUSED_PARAM const WebSocketClient::Message &p_message) {

@@ -1,0 +1,21 @@
+#ifndef BITMAP_CLASS_FACTORY_H
+#define BITMAP_CLASS_FACTORY_H
+
+#include <unordered_map>
+#include <string>
+#include <memory>
+#include <functional>
+#include "bitmap_base.h"
+
+class BitmapClassFactory {
+public:
+    using BitmapCreator = std::function<std::unique_ptr<BitmapBase>(const std::string&)>;
+    static void initialize();
+    static std::unique_ptr<BitmapBase> create(const std::string& p_class_name);
+
+private:
+    static std::unordered_map<std::string, BitmapCreator> factory_map;
+    static std::string extract_base_name(const std::string& p_class_name);
+};
+
+#endif // BITMAP_CLASS_FACTORY_H

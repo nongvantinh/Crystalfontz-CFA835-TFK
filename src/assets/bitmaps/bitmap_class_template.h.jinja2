@@ -1,0 +1,12 @@
+#ifndef {{ base_name | upper }}_H
+#define {{ base_name | upper }}_H
+
+#include "bitmap_base.h"
+
+{% for class_data in classes_data %}
+struct {{ class_data.class_name }} : public BitmapBase {
+    {{ class_data.class_name }}();
+};
+{% endfor %}
+
+#endif // {{ base_name | upper }}_H
